@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="Kurs2.Custom.AddDriverCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <md:Card Padding="24" Background="{DynamicResource MaterialDesignPaper}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBox x:Name="LastNameBox"
+               Grid.Row="0"
+               Style="{StaticResource MaterialDesignOutlinedTextBox}"
+               md:HintAssist.Hint="Фамилия"/>
+
+            <TextBox x:Name="FirstNameBox"
+               Grid.Row="1"
+               Margin="0,16,0,0"
+               Style="{StaticResource MaterialDesignOutlinedTextBox}"
+               md:HintAssist.Hint="Имя"/>
+
+            <DatePicker x:Name="DobPicker"
+                  Grid.Row="2"
+                  Margin="0,16,0,0"
+                  Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                  md:HintAssist.Hint="Дата рождения"/>
+
+            <TextBox x:Name="NationalityBox"
+               Grid.Row="3"
+               Margin="0,16,0,0"
+               Style="{StaticResource MaterialDesignOutlinedTextBox}"
+               md:HintAssist.Hint="Национальность"/>
+
+            <TextBox x:Name="UrlBox"
+               Grid.Row="4"
+               Margin="0,16,0,0"
+               Style="{StaticResource MaterialDesignOutlinedTextBox}"
+               md:HintAssist.Hint="Ссылка на Wikipedia"
+               md:HintAssist.HelperText="Пример: https://en.wikipedia.org/wiki/Lewis_Hamilton"/>
+
+            <StackPanel Grid.Row="5"
+                  Orientation="Horizontal"
+                  HorizontalAlignment="Right"
+                  Margin="0,24,0,0">
+                <Button Content="Отмена"
+                Click="Cancel_Click"
+                Style="{StaticResource MaterialDesignFlatButton}"
+                Margin="0,0,16,0"/>
+                <Button Content="Добавить"
+                Click="Add_Click"
+                Style="{StaticResource MaterialDesignRaisedButton}"/>
+            </StackPanel>
+        </Grid>
+    </md:Card>
+</UserControl>

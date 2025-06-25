@@ -1,0 +1,47 @@
+﻿<Page x:Class="Kurs2.Pages.ConstructorsChampionshipPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="ConstructorsChampionshipPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="ExportBtn" 
+                Content="Экспорт в PDF" 
+                Margin="10" 
+                Padding="5"
+                HorizontalAlignment="Right"
+                Click="ExportBtn_Click"/>
+
+        <DataGrid x:Name="ResultsGrid"
+                  Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  CanUserSortColumns="False"
+                  IsReadOnly="True"
+                  CanUserAddRows="False"
+                  RowHeight="35">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Позиция"
+                                    Binding="{Binding [Позиция]}" />
+
+                <DataGridTemplateColumn Header="Конструктор">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <Hyperlink
+                                  NavigateUri="{Binding [ConstructorUrl]}"
+                                  RequestNavigate="Hyperlink_RequestNavigate"
+                                  Foreground="Black"
+                                  TextDecorations="None">
+                                    <Run Text="{Binding [Конструктор]}" />
+                                </Hyperlink>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

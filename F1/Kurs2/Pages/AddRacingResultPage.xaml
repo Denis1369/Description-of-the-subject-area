@@ -1,0 +1,118 @@
+﻿<Page x:Class="Kurs2.Pages.AddRacingResultPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Добавление результата гонки">
+    <md:DialogHost Identifier="ImportDialogHost">
+        <Grid Margin="24">
+        <md:Card Margin="0 0 0 16" Padding="24" Background="{DynamicResource MaterialDesignPaper}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Сезон:" 
+                           Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                           Margin="0 0 0 16"
+                           Grid.Row="0" Grid.Column="0"/>
+
+                <ComboBox x:Name="SeasonC"
+                          MinWidth="200"
+                          SelectedValuePath="Id"
+                          md:HintAssist.Hint="Выберите сезон"
+                          Margin="0 0 0 16"
+                          Grid.Row="0" Grid.Column="1"/>
+
+                <TextBlock Text="Гонщик:" 
+                           Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                           Margin="0 0 0 16"
+                           Grid.Row="1" Grid.Column="0"/>
+
+                <ComboBox x:Name="RacerC"
+                          MinWidth="200"
+                          SelectedValuePath="Id"
+                          md:HintAssist.Hint="Выберите гонщика"
+                          Margin="0 0 0 16"
+                          Grid.Row="1" Grid.Column="1"/>
+
+                <TextBlock Text="Гонка:" 
+                           Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                           Margin="0 0 0 16"
+                           Grid.Row="2" Grid.Column="0"/>
+
+                <ComboBox x:Name="RaceC"
+                          MinWidth="200"
+                          SelectedValuePath="Id"
+                          md:HintAssist.Hint="Выберите гонку"
+                          Margin="0 0 0 16"
+                          Grid.Row="2" Grid.Column="1"/>
+
+                <TextBlock Text="Стартовая позиция:" 
+                           Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                           Margin="0 0 0 16"
+                           Grid.Row="3" Grid.Column="0"/>
+
+                <ComboBox x:Name="StartC"
+                          MinWidth="120"
+                          md:HintAssist.Hint="Стартовая позиция"
+                          Margin="0 0 0 16"
+                          Grid.Row="3" Grid.Column="1"/>
+
+                <TextBlock Text="Финишная позиция:" 
+                           Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                           Margin="0 0 0 16"
+                           Grid.Row="4" Grid.Column="0"/>
+
+                <ComboBox x:Name="EndC"
+                          MinWidth="120"
+                          md:HintAssist.Hint="Финишная позиция"
+                          Margin="0 0 0 16"
+                          Grid.Row="4" Grid.Column="1"/>
+
+                <Button Content="Добавить результат"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        HorizontalAlignment="Right"
+                        Click="Save_Click"
+                        Margin="0 16 0 0"
+                        Grid.Row="5" Grid.Column="1" Cursor="Hand"/>
+
+                    <Button Content="Удалить результат"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        HorizontalAlignment="Center"
+                        Click="Del_Click"
+                        Margin="0 16 0 0"
+                        Grid.Row="5" Grid.Column="1" Cursor="Hand"/>
+
+                    <Button Content="Парсинг результатов"
+                        x:Name="ImportBtn"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom"
+                        Grid.Row="5" Grid.Column="1" Cursor="Hand" Click="Import_Click"/>
+            </Grid>
+        </md:Card>
+
+        <StackPanel x:Name="ToastContainer"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Top"
+        Margin="0,265,0,0"
+        Orientation="Vertical"
+        Panel.ZIndex="100"/>
+        </Grid>
+    </md:DialogHost>
+</Page>
